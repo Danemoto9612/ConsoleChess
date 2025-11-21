@@ -1,0 +1,109 @@
+package model;
+
+import java.util.Scanner;
+
+public class ChessPlayer {
+
+    String nombre;
+    String color;
+    String jugada;
+    String jugadas[] = new String[100];
+
+    Scanner sc = new Scanner(System.in);
+
+    public String getName() {
+        return nombre;
+    }
+
+    public void setName(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String[] getJugadas() {
+        return jugadas;
+    }
+
+    public void setJugadas(String[] jugadas) {
+        this.jugadas = jugadas;
+    }
+
+    public ChessPlayer(String color) {
+
+        // Ciclo para ingresar nombre jugador 1
+        while (true) {
+
+            System.out.println("---------------------------------------------");
+            System.out.print("Nombre jugador : ");
+            this.nombre = sc.nextLine().toUpperCase();
+            if (this.nombre.length() > 0) {
+
+                System.out.println("---------------------------------------------");
+                System.out.println("Nombre agregado");
+                break;
+            } else {
+
+                System.out.println("---------------------------------------------");
+                System.out.println("     << Recuerde ingresar un nombre >>");
+            }
+        }
+
+        this.color = color;
+    }
+
+    public String makeMovement() {
+
+        System.out.println("---------------------------------------------");
+        System.out.println("      << Ejemplo de jugadas válidas >>");
+        System.out.println("---------------------------------------------");
+        System.out.println("          E2E3 / E5D5 / E4F5 / B3C5");
+        System.out.println("---------------------------------------------");
+
+        while (true) {
+
+            System.out.println("---------------------------------------------");
+            System.out.print("Ingrese jugada(CACS): ");
+            jugada = sc.nextLine().toUpperCase();
+            if (jugada.length() == 4) {
+
+                int a, b, c, d;
+
+                a = jugada.charAt(0);
+                b = jugada.charAt(1);
+                c = jugada.charAt(2);
+                d = jugada.charAt(3);
+
+                if (a >= 65 && a <= 72 && c >= 65 && c <= 72 && b >= 49 && b <= 56 && d >= 49 && d <= 56) {
+
+                    if (a == c && b == d) {
+
+                        System.out.println("---------------------------------------------");
+                        System.out.println("     << No ha realizado un movimiento >>");
+                    } else {
+
+                        System.out.println("---------------------------------------------");
+                        System.out.println("            << Jugada aprobada >>");
+                        break;
+                    }
+                } else {
+
+                    System.out.println("---------------------------------------------");
+                    System.out.println("            << Jugada errónea >>");
+                }
+            } else {
+
+                System.out.println("---------------------------------------------");
+                System.out.println("            << Jugada errónea >>");
+            }
+        }
+
+        return jugada;
+    }
+}
