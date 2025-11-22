@@ -41,12 +41,10 @@ public class ChessPlayer {
         while (true) {
 
             System.out.println("---------------------------------------------");
-            System.out.print("Nombre jugador : ");
+            System.out.print("Nombre jugador: ");
             this.nombre = sc.nextLine().toUpperCase();
             if (this.nombre.length() > 0) {
 
-                System.out.println("---------------------------------------------");
-                System.out.println("Nombre agregado");
                 break;
             } else {
 
@@ -55,7 +53,12 @@ public class ChessPlayer {
             }
         }
 
-        this.color = color;
+        this.color = color.toUpperCase();
+        System.out.println("---------------------------------------------");
+        System.out.println("Jugador: " + getName());
+        System.out.println("Color: " + getColor());
+        System.out.println("---------------------------------------------");
+        System.out.println("            << Jugador creado >>>");
     }
 
     public String makeMovement() {
@@ -64,7 +67,6 @@ public class ChessPlayer {
         System.out.println("      << Ejemplo de jugadas válidas >>");
         System.out.println("---------------------------------------------");
         System.out.println("          E2E3 / E5D5 / E4F5 / B3C5");
-        System.out.println("---------------------------------------------");
 
         while (true) {
 
@@ -73,37 +75,16 @@ public class ChessPlayer {
             jugada = sc.nextLine().toUpperCase();
             if (jugada.length() == 4) {
 
-                int a, b, c, d;
-
-                a = jugada.charAt(0);
-                b = jugada.charAt(1);
-                c = jugada.charAt(2);
-                d = jugada.charAt(3);
-
-                if (a >= 65 && a <= 72 && c >= 65 && c <= 72 && b >= 49 && b <= 56 && d >= 49 && d <= 56) {
-
-                    if (a == c && b == d) {
-
-                        System.out.println("---------------------------------------------");
-                        System.out.println("     << No ha realizado un movimiento >>");
-                    } else {
-
-                        System.out.println("---------------------------------------------");
-                        System.out.println("            << Jugada aprobada >>");
-                        break;
-                    }
-                } else {
-
-                    System.out.println("---------------------------------------------");
-                    System.out.println("            << Jugada errónea >>");
-                }
+                System.out.println("---------------------------------------------");
+                System.out.println("            << Jugada aprobada >>");
+                break;
             } else {
 
                 System.out.println("---------------------------------------------");
                 System.out.println("            << Jugada errónea >>");
             }
         }
-
+        
         return jugada;
     }
 }

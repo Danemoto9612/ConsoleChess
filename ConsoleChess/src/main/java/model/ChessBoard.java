@@ -2,9 +2,9 @@ package model;
 
 public class ChessBoard {
 
-    private String board[][] = new String[8][8];
+    private final String board[][] = new String[8][8];
 
-    public void organizeChessBoard(String[] white, String[] black) {
+    public ChessBoard(String[] white, String[] black) {
 
         // Organizar fichas blancas en tablero
         for (int fila = 0; fila < 3; fila++) {

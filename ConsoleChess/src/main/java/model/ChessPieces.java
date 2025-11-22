@@ -12,15 +12,7 @@ public class ChessPieces {
         return whitePieces;
     }
 
-    public void setWhitePieces(String[] whitePieces) {
-        this.whitePieces = whitePieces;
-    }
-
     public String[] getBlackPieces() {
         return blackPieces;
-    }
-
-    public void setBlackPieces(String[] blackPieces) {
-        this.blackPieces = blackPieces;
     }
 }
