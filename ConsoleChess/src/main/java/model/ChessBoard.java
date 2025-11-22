@@ -49,4 +49,5 @@ public class ChessBoard {
     public String[][] getBoard() {
         return board;
     }
+    
 }

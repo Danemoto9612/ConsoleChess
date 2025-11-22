@@ -17,11 +17,10 @@ public class ConsoleChess {
         ChessPieces whiteAndBlack = new ChessPieces();
         ChessBoard board = new ChessBoard(whiteAndBlack.getWhitePieces(), whiteAndBlack.getBlackPieces());
         MovementValidator validator = new MovementValidator();
-        ChessPlotter plotter = new ChessPlotter();
+        ChessPlotter plotter = new ChessPlotter(board.getBoard());
         
         
-        validator.movementValidator(playerWhite.makeMovement());
-        int[] mv = validator.getBackString();
-        System.out.println(Arrays.toString(mv));
+        
+        plotter.plotter(board.getBoard(), validator.movementValidator(playerWhite.makeMovement()));
     }
 }

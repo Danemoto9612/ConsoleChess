@@ -10,14 +10,14 @@ public class MovementValidator {
     
     public MovementValidator() {
 
-        converter.put("A", 1);
-        converter.put("B", 2);
-        converter.put("C", 3);
-        converter.put("D", 4);
-        converter.put("E", 5);
-        converter.put("F", 6);
-        converter.put("G", 7);
-        converter.put("H", 8);
+        converter.put("A", 0);
+        converter.put("B", 1);
+        converter.put("C", 2);
+        converter.put("D", 3);
+        converter.put("E", 4);
+        converter.put("F", 5);
+        converter.put("G", 6);
+        converter.put("H", 7);
     }
 
     public int[] getBackString() {
@@ -59,7 +59,7 @@ public class MovementValidator {
             System.out.println("            << Jugada errónea >>");
             System.out.println("---------------------------------------------");
             System.out.println("Horizontal: A - H");
-            System.out.println("Vertical: 1 - 8");
+            System.out.println("Vertical: 0 - 7");
             return null;
         }
     }
