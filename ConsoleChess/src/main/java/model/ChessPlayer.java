@@ -75,8 +75,6 @@ public class ChessPlayer {
             jugada = sc.nextLine().toUpperCase();
             if (jugada.length() == 4) {
 
-                System.out.println("---------------------------------------------");
-                System.out.println("            << Jugada aprobada >>");
                 break;
             } else {
 

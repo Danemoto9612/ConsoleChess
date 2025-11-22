@@ -32,7 +32,7 @@ public class MovementValidator {
         b = movement.charAt(1);
         c = movement.charAt(2);
         d = movement.charAt(3);
-
+        
         if (a >= 65 && a <= 72 && c >= 65 && c <= 72 && b >= 49 && b <= 56 && d >= 49 && d <= 56) {
 
             if (a == c && b == d) {
@@ -44,13 +44,13 @@ public class MovementValidator {
 
                 System.out.println("---------------------------------------------");
                 System.out.println("            << Jugada aprobada >>");
-                backString[lenBackString] = converter.get(String.valueOf(a));
+                backString[lenBackString] = converter.get(movement.substring(0, 1));
                 lenBackString++;
-                backString[lenBackString] = Integer.parseInt(String.valueOf(b));
+                backString[lenBackString] = Integer.parseInt(String.valueOf(movement.substring(1, 2)));
                 lenBackString++;
-                backString[lenBackString] = converter.get(String.valueOf(c));
+                backString[lenBackString] = converter.get(movement.substring(2, 3));
                 lenBackString++;
-                backString[lenBackString] = Integer.parseInt(String.valueOf(d));
+                backString[lenBackString] = Integer.parseInt(String.valueOf(movement.substring(3, 4)));
                 return backString;
             }
         } else {
