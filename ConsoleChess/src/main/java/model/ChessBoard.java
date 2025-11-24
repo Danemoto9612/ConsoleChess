@@ -2,8 +2,8 @@ package model;
 
 public class ChessBoard {
 
-    private final String board[][] = new String[8][8];
-
+    public String board[][] = new String[8][8];
+    
     public ChessBoard(String[] white, String[] black) {
 
         // Organizar fichas blancas en tablero
@@ -48,6 +48,11 @@ public class ChessBoard {
 
     public String[][] getBoard() {
         return board;
+    }
+
+    public void setBoard(int filaO, int columnaO, int filaN, int columnaN) {
+        this.board[filaN][columnaN] = board[filaO][columnaO];
+        this.board[filaO][columnaO] = " XX ";
     }
     
 }

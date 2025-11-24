@@ -1,6 +1,5 @@
 package main;
 
-import java.util.Arrays;
 import model.ChessBoard;
 import model.ChessPieces;
 import model.ChessPlayer;
@@ -17,10 +16,10 @@ public class ConsoleChess {
         ChessPieces whiteAndBlack = new ChessPieces();
         ChessBoard board = new ChessBoard(whiteAndBlack.getWhitePieces(), whiteAndBlack.getBlackPieces());
         MovementValidator validator = new MovementValidator();
-        ChessPlotter plotter = new ChessPlotter(board.getBoard());
+        ChessPlotter plotter = new ChessPlotter(board);
         
         
         
-        plotter.plotter(board.getBoard(), validator.movementValidator(playerWhite.makeMovement()));
+        plotter.plotter(board, validator.movementValidator(playerWhite.makeMovement()));
     }
 }
