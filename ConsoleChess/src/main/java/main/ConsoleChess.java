@@ -19,7 +19,14 @@ public class ConsoleChess {
         ChessPlotter plotter = new ChessPlotter(board);
         
         
+        int[] option = validator.movementValidator(board ,playerWhite.makeMovement());
         
-        plotter.plotter(board, validator.movementValidator(playerWhite.makeMovement()));
+        if (option != null) {
+            
+            plotter.plotter(board, option);
+        } else {
+            
+            System.out.println("NULL");
+        }
     }
 }

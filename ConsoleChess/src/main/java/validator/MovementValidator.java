@@ -25,7 +25,7 @@ public class MovementValidator {
         return backString;
     }
 
-    public int[] movementValidator(String movement) {
+    public int[] movementValidator(ChessBoard board,String movement) {
 
         int a, b, c, d;
 
@@ -52,7 +52,13 @@ public class MovementValidator {
                 backString[lenBackString] = converter.get(movement.substring(2, 3));
                 lenBackString++;
                 backString[lenBackString] = Integer.parseInt(String.valueOf(movement.substring(3, 4)));
-                return backString;
+                if (availableMovement(board, backString)) {
+                    
+                    return backString;
+                } else {
+                    
+                    return null;
+                }
             }
         } else {
 
@@ -65,36 +71,61 @@ public class MovementValidator {
         }
     }
 
-    private int[] availableMovement(ChessBoard board, int[] movement) {
+    private boolean availableMovement(ChessBoard board, int[] movement) {
 
         String pieza = board.getBoard()[1][0].substring(0, 1);
 
         switch (pieza) {
+            
             case "P" -> {
-                
-                break;
+
+                // Validar si es o no movimiento diagonal
+                if (movement[0] != movement[2]) {
+
+                    return (movement[2] <= movement[0] + 1 || movement[2] <= movement[0] - 1) 
+                            && !board.getBoard()[movement[3]][movement[2]].equals(" XX ");
+                } else {
+                    
+                    switch (movement[1]) {
+                        case 1 -> {
+                            
+                            return (movement[3] <= movement[1] + 2 && 
+                                    board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                        }
+                        case 6 -> {
+                            
+                            return (movement[3] <= movement[1] - 2 &&
+                                    board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                        }
+                        default -> {
+                            
+                            return ((movement[3] <= movement[1] + 1 || movement[3] <= movement[1] - 1) && 
+                                    board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                        }
+                    }
+                }
             }
             case "T" -> {
-                
-                break;
+
+                return false;
             }
             case "C" -> {
-                
-                break;
+
+                return false;
             }
             case "A" -> {
-                
-                break;
+
+                return false;
             }
             case "Q" -> {
-                
-                break;
+
+                return false;
             }
             case "K" -> {
-                
-                break;
+
+                return false;
             }
         }
-        return null;
+        return false;
     }
 }
