@@ -50,9 +50,9 @@ public class ChessBoard {
         return board;
     }
 
-    public void setBoard(int filaO, int columnaO, int filaN, int columnaN) {
-        this.board[filaN][columnaN] = board[filaO][columnaO];
-        this.board[filaO][columnaO] = " XX ";
+    public void setBoard(int filaOriginal, int columnaOriginal, int filaNueva, int columnaNueva) {
+        this.board[filaNueva][columnaNueva] = board[filaOriginal][columnaOriginal];
+        this.board[filaOriginal][columnaOriginal] = " XX ";
     }
     
 }

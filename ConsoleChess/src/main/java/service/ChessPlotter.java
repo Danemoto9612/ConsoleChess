@@ -32,7 +32,7 @@ public class ChessPlotter {
 
     public void plotter(ChessBoard board, int[] movement) {
         
-        board.setBoard(movement[3], movement[2], movement[1], movement[0]);
+        board.setBoard(movement[1], movement[0], movement[3], movement[2]);
         
         System.out.println("---------------------------------------------");
         

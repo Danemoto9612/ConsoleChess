@@ -1,13 +1,14 @@
 package validator;
 
 import java.util.HashMap;
+import model.ChessBoard;
 
 public class MovementValidator {
 
     private HashMap<String, Integer> converter = new HashMap<>();
     private int[] backString = new int[4];
     private int lenBackString = 0;
-    
+
     public MovementValidator() {
 
         converter.put("A", 0);
@@ -23,7 +24,7 @@ public class MovementValidator {
     public int[] getBackString() {
         return backString;
     }
-    
+
     public int[] movementValidator(String movement) {
 
         int a, b, c, d;
@@ -32,7 +33,7 @@ public class MovementValidator {
         b = movement.charAt(1);
         c = movement.charAt(2);
         d = movement.charAt(3);
-        
+
         if (a >= 65 && a <= 72 && c >= 65 && c <= 72 && b >= 49 && b <= 56 && d >= 49 && d <= 56) {
 
             if (a == c && b == d) {
@@ -62,5 +63,38 @@ public class MovementValidator {
             System.out.println("Vertical: 0 - 7");
             return null;
         }
+    }
+
+    private int[] availableMovement(ChessBoard board, int[] movement) {
+
+        String pieza = board.getBoard()[1][0].substring(0, 1);
+
+        switch (pieza) {
+            case "P" -> {
+                
+                break;
+            }
+            case "T" -> {
+                
+                break;
+            }
+            case "C" -> {
+                
+                break;
+            }
+            case "A" -> {
+                
+                break;
+            }
+            case "Q" -> {
+                
+                break;
+            }
+            case "K" -> {
+                
+                break;
+            }
+        }
+        return null;
     }
 }
