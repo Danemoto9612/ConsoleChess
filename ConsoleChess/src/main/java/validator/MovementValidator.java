@@ -7,7 +7,7 @@ public class MovementValidator {
 
     private final HashMap<String, Integer> converter = new HashMap<>();
     private int[] backString = new int[4];
-    private int lenBackString = 0;
+    private int lenBackString;
 
     public MovementValidator() {
 
@@ -43,6 +43,7 @@ public class MovementValidator {
                 return null;
             } else {
 
+                lenBackString = 0;
                 backString[lenBackString] = converter.get(movement.substring(0, 1));
                 lenBackString++;
                 backString[lenBackString] = Integer.parseInt(String.valueOf(movement.substring(1, 2)));
@@ -92,7 +93,7 @@ public class MovementValidator {
                         }
                         case 6 -> {
                             
-                            return (movement[3] <= movement[1] - 2 &&
+                            return (movement[3] >= movement[1] - 2 &&
                                     board.getBoard()[movement[3]][movement[2]].equals(" XX "));
                         }
                         default -> {
@@ -123,7 +124,10 @@ public class MovementValidator {
 
                 return false;
             }
+            default -> {
+                
+                return false;
+            }
         }
-        return false;
     }
 }

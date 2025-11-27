@@ -14,15 +14,6 @@ public class ConsoleChess {
 
         String option;
 
-        // Instanciamiento de componentes clave de ajedréz
-        ChessPlayer playerWhite = new ChessPlayer("Blancas");
-        ChessPlayer playerBlack = new ChessPlayer("Negras");
-        ChessPieces whiteAndBlack = new ChessPieces();
-        ChessBoard board = new ChessBoard(whiteAndBlack.getWhitePieces(), whiteAndBlack.getBlackPieces());
-        MovementValidator validator = new MovementValidator();
-        ChessPlotter plotter = new ChessPlotter(board);
-        Menu information = new Menu();
-        
         Scanner sc = new Scanner(System.in);
 
         do {
@@ -35,6 +26,7 @@ public class ConsoleChess {
             System.out.println("2. Ver registro de jugadas");
             System.out.println("3. Ver documentación");
             System.out.println("---------------------------------------------------------");
+            System.out.print("Ingrese opción: ");
             option = sc.nextLine();
 
             switch (option) {
@@ -46,43 +38,66 @@ public class ConsoleChess {
                     break;
                 }
                 case "1" -> {
-                    
-                    break;
+
+                    // Instanciamiento de componentes clave de ajedréz
+                    ChessPlayer playerWhite = new ChessPlayer("Blancas");
+                    ChessPlayer playerBlack = new ChessPlayer("Negras");
+                    ChessPieces whiteAndBlack = new ChessPieces();
+                    ChessBoard board = new ChessBoard(whiteAndBlack.getWhitePieces(), whiteAndBlack.getBlackPieces());
+                    MovementValidator validator = new MovementValidator();
+                    ChessPlotter plotter = new ChessPlotter(board);
+                    while (true) {
+
+                        int[] optionWhite = validator.movementValidator(board, playerWhite.makeMovement());
+                        
+                        if (optionWhite != null) {
+
+                            System.out.println("---------------------------------------------");
+                            System.out.println("            << Jugada aprobada >>");
+                            plotter.plotter(board, validator.getBackString());
+                        } else {
+
+                            System.out.println("---------------------------------------------");
+                            System.out.println("            << Jugada errónea >>");
+                        }
+                        
+                        int[] optionBlack = validator.movementValidator(board, playerBlack.makeMovement());
+                        
+                        if (optionBlack != null) {
+
+                            System.out.println("---------------------------------------------");
+                            System.out.println("            << Jugada aprobada >>");
+                            plotter.plotter(board, validator.getBackString());
+                        } else {
+
+                            System.out.println("---------------------------------------------");
+                            System.out.println("            << Jugada errónea >>");
+                        }
+                    }
                 }
                 case "2" -> {
-                    
+
                     break;
                 }
                 case "3" -> {
-                    
+
+                    Menu information = new Menu();
                     information.documentation();
                     break;
                 }
                 case "4" -> {
-                    
+
                     System.out.println("---------------------------------------------------------");
                     System.out.println("            << CREATED BY DANIEL MORALES >>");
                     break;
                 }
                 default -> {
-                    
+
                     System.out.println("---------------------------------------------------------");
                     System.out.println("              O P C I Ó N   I N V Á L I D A");
                     break;
                 }
             }
         } while (!option.equals("0"));
-
-        
-
-        if (validator.movementValidator(board, playerWhite.makeMovement()) != null) {
-
-            System.out.println("---------------------------------------------");
-            System.out.println("            << Jugada aprobada >>");
-            plotter.plotter(board, validator.movementValidator(board, playerWhite.makeMovement()));
-        } else {
-
-            System.out.println("NULL");
-        }
     }
 }

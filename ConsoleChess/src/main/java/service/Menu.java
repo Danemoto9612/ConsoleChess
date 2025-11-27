@@ -26,24 +26,29 @@ public class Menu {
                     break;
                 }
                 case "1" -> {
+                    
+                    break;
                 }
                 case "2" -> {
                     
                     System.out.println("---------------------------------------------------------");
-                    System.out.println("Peón = P[#]");
-                    System.out.println("Torre = T[I - D]");
-                    System.out.println("Caballo = C[I - D]");
-                    System.out.println("Alfíl = A[I - D]");
-                    System.out.println("Reina = Q[I - D]");
-                    System.out.println("Rey = R[I - D]");
+                    System.out.println("Peón    =   P[#]");
+                    System.out.println("Torre   =   T[I - D]");
+                    System.out.println("Caballo =   C[I - D]");
+                    System.out.println("Alfíl   =   A[I - D]");
+                    System.out.println("Reina   =   Q[I - D]");
+                    System.out.println("Rey     =   R[I - D]");
                     break;
                 }
                 case "3" -> {
                     
                     System.out.println("---------------------------------------------------------");
                     System.out.println("https://github.com/danemoto9612");
+                    break;
                 }
                 default -> {
+                    
+                    break;
                 }
             }
         } while (!option.equals("0"));
