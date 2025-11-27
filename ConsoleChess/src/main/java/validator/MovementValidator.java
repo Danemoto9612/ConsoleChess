@@ -5,7 +5,7 @@ import model.ChessBoard;
 
 public class MovementValidator {
 
-    private HashMap<String, Integer> converter = new HashMap<>();
+    private final HashMap<String, Integer> converter = new HashMap<>();
     private int[] backString = new int[4];
     private int lenBackString = 0;
 
@@ -43,8 +43,6 @@ public class MovementValidator {
                 return null;
             } else {
 
-                System.out.println("---------------------------------------------");
-                System.out.println("            << Jugada aprobada >>");
                 backString[lenBackString] = converter.get(movement.substring(0, 1));
                 lenBackString++;
                 backString[lenBackString] = Integer.parseInt(String.valueOf(movement.substring(1, 2)));
@@ -73,7 +71,7 @@ public class MovementValidator {
 
     private boolean availableMovement(ChessBoard board, int[] movement) {
 
-        String pieza = board.getBoard()[1][0].substring(0, 1);
+        String pieza = board.getBoard()[movement[1]][movement[0]].substring(1, 2);
 
         switch (pieza) {
             
