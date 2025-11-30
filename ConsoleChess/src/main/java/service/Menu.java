@@ -12,17 +12,17 @@ public class Menu {
 
         do {
 
-            System.out.println("---------------------------------------------------------");
-            System.out.println("0. Salir                            2. Piezas");
-            System.out.println("1. Jugadas                          3. Repositorio GITHUB");
-            System.out.println("---------------------------------------------------------");
+            System.out.println("---------------------------------------------");
+            System.out.println("0. Salir                 2. Piezas");
+            System.out.println("1. Jugadas               3. Repositorio GITHUB");
+            System.out.println("---------------------------------------------");
             option = sc.nextLine();
             
             switch (option) {
                 case "0" -> {
                     
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("   <<-------------   <<-------------  <<-------------");
+                    System.out.println("---------------------------------------------");
+                    System.out.println("  <<----------   <<----------  <<----------");
                     break;
                 }
                 case "1" -> {
@@ -31,7 +31,7 @@ public class Menu {
                 }
                 case "2" -> {
                     
-                    System.out.println("---------------------------------------------------------");
+                    System.out.println("---------------------------------------------");
                     System.out.println("Peón    =   P[#]");
                     System.out.println("Torre   =   T[I - D]");
                     System.out.println("Caballo =   C[I - D]");
@@ -42,7 +42,7 @@ public class Menu {
                 }
                 case "3" -> {
                     
-                    System.out.println("---------------------------------------------------------");
+                    System.out.println("---------------------------------------------");
                     System.out.println("https://github.com/danemoto9612");
                     break;
                 }

@@ -18,23 +18,23 @@ public class ConsoleChess {
 
         do {
 
-            System.out.println("---------------------------------------------------------");
-            System.out.println("                C O N S O L E   C H E S S");
-            System.out.println("---------------------------------------------------------");
+            System.out.println("---------------------------------------------");
+            System.out.println("         C O N S O L E   C H E S S");
+            System.out.println("---------------------------------------------");
             System.out.println("0. Salir");
             System.out.println("1. Jugar");
             System.out.println("2. Ver registro de jugadas");
             System.out.println("3. Ver documentación");
-            System.out.println("---------------------------------------------------------");
+            System.out.println("---------------------------------------------");
             System.out.print("Ingrese opción: ");
             option = sc.nextLine();
 
             switch (option) {
                 case "0" -> {
 
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("                 H A S T A   P R O N T O");
-                    System.out.println("---------------------------------------------------------");
+                    System.out.println("---------------------------------------------");
+                    System.out.println("           H A S T A   P R O N T O");
+                    System.out.println("---------------------------------------------");
                     break;
                 }
                 case "1" -> {
@@ -87,14 +87,14 @@ public class ConsoleChess {
                 }
                 case "4" -> {
 
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("            << CREATED BY DANIEL MORALES >>");
+                    System.out.println("---------------------------------------------");
+                    System.out.println("       << CREATED BY DANIEL MORALES >>");
                     break;
                 }
                 default -> {
 
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("              O P C I Ó N   I N V Á L I D A");
+                    System.out.println("---------------------------------------------");
+                    System.out.println("        O P C I Ó N   I N V Á L I D A");
                     break;
                 }
             }
