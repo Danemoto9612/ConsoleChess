@@ -2,7 +2,7 @@ package model;
 
 import java.util.Scanner;
 
-public class ChessPlayer {
+public final class ChessPlayer {
 
     String nombre;
     String color;
@@ -63,23 +63,17 @@ public class ChessPlayer {
 
     public String makeMovement() {
 
-        System.out.println("---------------------------------------------");
-        System.out.println("      << Ejemplo de jugadas válidas >>");
-        System.out.println("---------------------------------------------");
-        System.out.println("          E2E3 / E5D5 / E4F5 / B3C5");
-
         while (true) {
 
+            System.out.println("---------------------------------------------");
+            System.out.println("Jugador: " + getName());
+            System.out.println("Color: " +  getColor());
             System.out.println("---------------------------------------------");
             System.out.print("Ingrese jugada(CACS): ");
             jugada = sc.nextLine().toUpperCase();
             if (jugada.length() == 4) {
 
                 break;
-            } else {
-
-                System.out.println("---------------------------------------------");
-                System.out.println("            << Jugada errónea >>");
             }
         }
         

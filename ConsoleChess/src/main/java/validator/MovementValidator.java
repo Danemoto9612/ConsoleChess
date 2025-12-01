@@ -6,7 +6,7 @@ import model.ChessBoard;
 public class MovementValidator {
 
     private final HashMap<String, Integer> converter = new HashMap<>();
-    private int[] backString = new int[4];
+    private final int[] backString = new int[4];
     private int lenBackString;
 
     public MovementValidator() {
@@ -25,7 +25,7 @@ public class MovementValidator {
         return backString;
     }
 
-    public int[] movementValidator(ChessBoard board,String movement) {
+    public int[] movementValidator(ChessBoard board, String movement) {
 
         int a, b, c, d;
 
@@ -52,10 +52,10 @@ public class MovementValidator {
                 lenBackString++;
                 backString[lenBackString] = Integer.parseInt(String.valueOf(movement.substring(3, 4)));
                 if (availableMovement(board, backString)) {
-                    
+
                     return backString;
                 } else {
-                    
+
                     return null;
                 }
             }
@@ -75,38 +75,102 @@ public class MovementValidator {
         String pieza = board.getBoard()[movement[1]][movement[0]].substring(1, 2);
 
         switch (pieza) {
-            
+
             case "P" -> {
 
                 // Validar si es o no movimiento diagonal
-                if (movement[0] != movement[2]) {
+                if (movement[0] != movement[2] && movement[1] != movement[3]) {
 
-                    return (movement[2] <= movement[0] + 1 || movement[2] <= movement[0] - 1) 
+                    return (movement[2] <= movement[0] + 1 || movement[2] <= movement[0] - 1)
                             && !board.getBoard()[movement[3]][movement[2]].equals(" XX ");
                 } else {
-                    
+
                     switch (movement[1]) {
                         case 1 -> {
-                            
-                            return (movement[3] <= movement[1] + 2 && 
-                                    board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+
+                            return (movement[3] <= movement[1] + 2
+                                    && board.getBoard()[movement[3]][movement[2]].equals(" XX "));
                         }
                         case 6 -> {
-                            
-                            return (movement[3] >= movement[1] - 2 &&
-                                    board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+
+                            return (movement[3] >= movement[1] - 2
+                                    && board.getBoard()[movement[3]][movement[2]].equals(" XX "));
                         }
                         default -> {
-                            
-                            return ((movement[3] <= movement[1] + 1 || movement[3] <= movement[1] - 1) && 
-                                    board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+
+                            if (movement[3] > movement[1]) {
+
+                                return ((movement[3] <= movement[1] + 1) && board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                            } else {
+
+                                return ((movement[3] >= movement[1] - 1) && board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                            }
                         }
                     }
                 }
             }
             case "T" -> {
 
-                return false;
+                boolean sw = true;
+
+                if (movement[0] == movement[2] || movement[1] == movement[3]) {
+
+                    if (movement[0] != movement[2]) {
+
+                        if (movement[2] > movement[0]) {
+
+                            int i = movement[0] + 1;
+                            while (sw && i < movement[2]) {
+
+                                if (!board.getBoard()[1][i].equals(" XX ")) {
+
+                                    sw = false;
+                                }
+                                i++;
+                            }
+                        } else {
+
+                            int i = movement[0] - 1;
+                            while (sw && i > movement[2]) {
+
+                                if (!board.getBoard()[1][i].equals(" XX ")) {
+
+                                    sw = false;
+                                }
+                                i--;
+                            }
+                        }
+                    } else if (movement[1] != movement[3]) {
+
+                        if (movement[3] > movement[1]) {
+
+                            int i = movement[1] + 1;
+                            while (sw && i < movement[3]) {
+
+                                if (!board.getBoard()[i][0].equals(" XX ")) {
+
+                                    sw = false;
+                                }
+                                i++;
+                            }
+                        } else {
+
+                            int i = movement[1] - 1;
+                            while (sw && i > movement[3]) {
+
+                                if (!board.getBoard()[i][0].equals(" XX ")) {
+
+                                    sw = false;
+                                }
+                                i--;
+                            }
+                        }
+                    }
+                } else {
+                    
+                    sw = false;
+                }
+                return sw;
             }
             case "C" -> {
 
@@ -125,7 +189,7 @@ public class MovementValidator {
                 return false;
             }
             default -> {
-                
+
                 return false;
             }
         }
