@@ -34,7 +34,7 @@ public class MovementValidator {
         c = movement.charAt(2);
         d = movement.charAt(3);
 
-        if (a >= 65 && a <= 72 && c >= 65 && c <= 72 && b >= 49 && b <= 56 && d >= 49 && d <= 56) {
+        if (a >= 65 && a <= 72 && c >= 65 && c <= 72 && b >= 48 && b <= 56 && d >= 48 && d <= 56) {
 
             if (a == c && b == d) {
 
@@ -113,62 +113,56 @@ public class MovementValidator {
 
                 boolean sw = true;
 
-                if (movement[0] == movement[2] || movement[1] == movement[3]) {
+                if (movement[0] == movement[2]) { // Se mueve de forma vertical
 
-                    if (movement[0] != movement[2]) {
+                    if (movement[3] > movement[1]) {// Mueve hacia abajo
 
-                        if (movement[2] > movement[0]) {
+                        int i = movement[1] + 1;
+                        while (sw && i < movement[3]) {
 
-                            int i = movement[0] + 1;
-                            while (sw && i < movement[2]) {
+                            if (!board.getBoard()[i][movement[0]].equals(" XX ")) {
 
-                                if (!board.getBoard()[1][i].equals(" XX ")) {
-
-                                    sw = false;
-                                }
-                                i++;
+                                sw = false;
                             }
-                        } else {
-
-                            int i = movement[0] - 1;
-                            while (sw && i > movement[2]) {
-
-                                if (!board.getBoard()[1][i].equals(" XX ")) {
-
-                                    sw = false;
-                                }
-                                i--;
-                            }
+                            i++;
                         }
-                    } else if (movement[1] != movement[3]) {
+                    } else if (movement[3] < movement[1]) { // Mueve hacia arriba
 
-                        if (movement[3] > movement[1]) {
+                        int i = movement[1] - 1;
+                        while (sw && i > movement[3]) {
 
-                            int i = movement[1] + 1;
-                            while (sw && i < movement[3]) {
+                            if (!board.getBoard()[i][movement[0]].equals(" XX ")) {
 
-                                if (!board.getBoard()[i][0].equals(" XX ")) {
-
-                                    sw = false;
-                                }
-                                i++;
+                                sw = false;
                             }
-                        } else {
-
-                            int i = movement[1] - 1;
-                            while (sw && i > movement[3]) {
-
-                                if (!board.getBoard()[i][0].equals(" XX ")) {
-
-                                    sw = false;
-                                }
-                                i--;
-                            }
+                            i--;
                         }
                     }
-                } else {
-                    
-                    sw = false;
+                } else if (movement[1] == movement[3]) { // Se mueve de forma horizontal
+
+                    if (movement[2] > movement[0]) {// Mueve hacia derecha
+
+                        int i = movement[0] + 1;
+                        while (sw && i < movement[2]) {
+
+                            if (!board.getBoard()[movement[1]][i].equals(" XX ")) {
+
+                                sw = false;
+                            }
+                            i++;
+                        }
+                    } else if (movement[2] < movement[0]) { // Mueve hacia izquierda
+
+                        int i = movement[0] - 1;
+                        while (sw && i > movement[2]) {
+
+                            if (!board.getBoard()[movement[1]][i].equals(" XX ")) {
+
+                                sw = false;
+                            }
+                            i--;
+                        }
+                    }
                 }
                 return sw;
             }
