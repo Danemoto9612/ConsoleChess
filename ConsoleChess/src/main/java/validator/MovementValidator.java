@@ -163,12 +163,84 @@ public class MovementValidator {
                             i--;
                         }
                     }
+                } else {
+
+                    sw = false;
                 }
                 return sw;
             }
             case "C" -> {
 
-                return false;
+                boolean sw;
+
+                // validar si hacia arriba o hacia de abajo
+                if (movement[3] > movement[1]) { // Movimiento hacia abajo
+
+                    // Validar si mueve hacia izquierda o hacia derecha
+                    if (movement[2] > movement[0]) { // Movimiento hacia derecha
+
+                        if (movement[3] == movement[1] + 2 && movement[2] == movement[0] + 1) { // Movimiento vertical
+
+                            sw = true;
+                        } else if (movement[3] == movement[1] + 1 && movement[2] == movement[0] + 2) { // Movimiento horizontal
+
+                            sw = true;
+                        } else {
+
+                            sw = false;
+                        }
+                    } else if (movement[2] < movement[0]) { // Movimiento hacia izquierda
+
+                        if (movement[3] == movement[1] + 2 && movement[2] == movement[0] - 1) { // Movimiento vertical
+
+                            sw = true;
+                        } else if (movement[3] == movement[1] + 1 && movement[2] == movement[0] - 2) { // Movimiento horizontal
+
+                            sw = true;
+                        } else {
+
+                            sw = false;
+                        }
+                    } else {
+
+                        sw = false;
+                    }
+                } else if (movement[3] < movement[1]) { // Movimiento hacia arriba
+
+                    // Validar si mueve hacia izquierda o hacia derecha
+                    if (movement[2] > movement[0]) { // Movimiento hacia derecha
+
+                        if (movement[3] == movement[1] - 2 && movement[2] == movement[0] + 1) { // Movimiento vertical
+
+                            sw = true;
+                        } else if (movement[3] == movement[1] - 1 && movement[2] == movement[0] + 2) { // Movimiento horizontal
+
+                            sw = true;
+                        } else {
+
+                            sw = false;
+                        }
+                    } else if (movement[2] < movement[0]) { // Movimiento hacia izquierda
+
+                        if (movement[3] == movement[1] - 2 && movement[2] == movement[0] - 1) { // Movimiento vertical
+
+                            sw = true;
+                        } else if (movement[3] == movement[1] - 1 && movement[2] == movement[0] - 2) { // Movimiento horizontal
+
+                            sw = true;
+                        } else {
+
+                            sw = false;
+                        }
+                    } else {
+
+                        sw = false;
+                    }
+                } else {
+
+                    sw = false;
+                }
+                return sw;
             }
             case "A" -> {
 
