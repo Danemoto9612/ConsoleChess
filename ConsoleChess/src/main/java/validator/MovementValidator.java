@@ -244,7 +244,121 @@ public class MovementValidator {
             }
             case "A" -> {
 
-                return false;
+                boolean sw;
+
+                if (movement[3] > movement[1]) { // Movimiento hacia abajo
+
+                    if (movement[2] > movement[0]) { // Movimiento hacia derecha
+
+                        if (movement[0] == movement[2]) {
+
+                            sw = false;
+                        } else if (movement[1] == movement[3]) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] + 2 && movement[2] == movement[0] + 1) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] + 1 && movement[2] == movement[0] + 2) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] + 2 && movement[2] == movement[0] - 1) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] + 1 && movement[2] == movement[0] - 2) {
+
+                            sw = false;
+                        } else {
+
+                            sw = true;
+                        }
+                    } else if (movement[2] < movement[0]) { // Movimiento hacia izquierda
+
+                        if (movement[0] == movement[2]) {
+
+                            sw = false;
+                        } else if (movement[1] == movement[3]) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] + 2 && movement[2] == movement[0] + 1) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] + 1 && movement[2] == movement[0] + 2) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] + 2 && movement[2] == movement[0] - 1) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 1 && movement[2] == movement[0] - 2) {
+
+                            sw = false;
+                        } else {
+
+                            sw = true;
+                        }
+                    } else {
+
+                        sw = false;
+                    }
+                } else if (movement[3] < movement[1]) { // Movimiento hacia arriba
+
+                    if (movement[2] > movement[0]) { // Movimiento hacia derecha
+
+                        if (movement[0] == movement[2]) {
+
+                            sw = false;
+                        } else if (movement[1] == movement[3]) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 2 && movement[2] == movement[0] + 1) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 1 && movement[2] == movement[0] + 2) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 2 && movement[2] == movement[0] - 1) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 1 && movement[2] == movement[0] - 2) {
+
+                            sw = false;
+                        } else {
+
+                            sw = true;
+                        }
+                    } else if (movement[2] < movement[0]) { // Movimiento hacia izquierda
+
+                        if (movement[0] == movement[2]) {
+
+                            sw = false;
+                        } else if (movement[1] == movement[3]) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 2 && movement[2] == movement[0] + 1) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 1 && movement[2] == movement[0] + 2) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 2 && movement[2] == movement[0] - 1) {
+
+                            sw = false;
+                        } else if (movement[3] == movement[1] - 1 && movement[2] == movement[0] - 2) {
+
+                            sw = false;
+                        } else {
+
+                            sw = true;
+                        }
+                    } else {
+
+                        sw = false;
+                    }
+                } else {
+
+                    sw = false;
+                }
+                return sw;
             }
             case "Q" -> {
 
