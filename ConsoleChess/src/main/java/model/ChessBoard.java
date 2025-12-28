@@ -41,7 +41,7 @@ public class ChessBoard {
 
             for (int columna = 0; columna < 8; columna++) {
 
-                board[fila][columna] = " XX ";
+                board[fila][columna] = " .. ";
             }
         }
     }
@@ -52,7 +52,7 @@ public class ChessBoard {
 
     public void setBoard(int filaOriginal, int columnaOriginal, int filaNueva, int columnaNueva) {
         this.board[filaNueva][columnaNueva] = board[filaOriginal][columnaOriginal];
-        this.board[filaOriginal][columnaOriginal] = " XX ";
+        this.board[filaOriginal][columnaOriginal] = " .. ";
     }
     
 }

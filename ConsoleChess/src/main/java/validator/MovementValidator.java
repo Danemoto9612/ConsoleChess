@@ -82,28 +82,28 @@ public class MovementValidator {
                 if (movement[0] != movement[2] && movement[1] != movement[3]) {
 
                     return (movement[2] <= movement[0] + 1 || movement[2] <= movement[0] - 1)
-                            && !board.getBoard()[movement[3]][movement[2]].equals(" XX ");
+                            && !board.getBoard()[movement[3]][movement[2]].equals(" .. ");
                 } else {
 
                     switch (movement[1]) {
                         case 1 -> {
 
                             return (movement[3] <= movement[1] + 2
-                                    && board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                                    && board.getBoard()[movement[3]][movement[2]].equals(" .. "));
                         }
                         case 6 -> {
 
                             return (movement[3] >= movement[1] - 2
-                                    && board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                                    && board.getBoard()[movement[3]][movement[2]].equals(" .. "));
                         }
                         default -> {
 
                             if (movement[3] > movement[1]) {
 
-                                return ((movement[3] <= movement[1] + 1) && board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                                return ((movement[3] <= movement[1] + 1) && board.getBoard()[movement[3]][movement[2]].equals(" .. "));
                             } else {
 
-                                return ((movement[3] >= movement[1] - 1) && board.getBoard()[movement[3]][movement[2]].equals(" XX "));
+                                return ((movement[3] >= movement[1] - 1) && board.getBoard()[movement[3]][movement[2]].equals(" .. "));
                             }
                         }
                     }
@@ -120,7 +120,7 @@ public class MovementValidator {
                         int i = movement[1] + 1;
                         while (sw && i < movement[3]) {
 
-                            if (!board.getBoard()[i][movement[0]].equals(" XX ")) {
+                            if (!board.getBoard()[i][movement[0]].equals(" .. ")) {
 
                                 sw = false;
                             }
@@ -131,7 +131,7 @@ public class MovementValidator {
                         int i = movement[1] - 1;
                         while (sw && i > movement[3]) {
 
-                            if (!board.getBoard()[i][movement[0]].equals(" XX ")) {
+                            if (!board.getBoard()[i][movement[0]].equals(" .. ")) {
 
                                 sw = false;
                             }
@@ -145,7 +145,7 @@ public class MovementValidator {
                         int i = movement[0] + 1;
                         while (sw && i < movement[2]) {
 
-                            if (!board.getBoard()[movement[1]][i].equals(" XX ")) {
+                            if (!board.getBoard()[movement[1]][i].equals(" .. ")) {
 
                                 sw = false;
                             }
@@ -156,7 +156,7 @@ public class MovementValidator {
                         int i = movement[0] - 1;
                         while (sw && i > movement[2]) {
 
-                            if (!board.getBoard()[movement[1]][i].equals(" XX ")) {
+                            if (!board.getBoard()[movement[1]][i].equals(" .. ")) {
 
                                 sw = false;
                             }
